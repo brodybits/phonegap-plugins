@@ -32,6 +32,9 @@ typedef NSUInteger GlobalizationError;
 @interface Globalization : PGPlugin {
     CFLocaleRef currentLocale;
 }
+
+- (void) getPreferredLanguage:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
+
 /**
  * Returns the string identifier for the client’s current locale setting.
  * It returns the locale identifier string to the successCB callback with a 

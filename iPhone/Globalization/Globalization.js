@@ -12,7 +12,24 @@ function Globalization()
 {
 
 };
-	
+
+Globalization.prototype.getPreferredLanguage = function(successCB, failureCB)
+{
+	// successCallback required
+	if (typeof successCB != "function") {
+        console.log("Globalization.getPreferredLanguage Error: successCB is not a function");
+        return;
+    }
+
+    // errorCallback required
+    if (typeof failureCB != "function") {
+        console.log("Globalization.getPreferredLanguage Error: failureCB is not a function");
+        return;
+    }
+
+	PhoneGap.exec(successCB, failureCB, "Globalization","getPreferredLanguage", []);
+};
+
 /**
 * Returns the string identifier for the client's current locale setting.
 * It returns the locale identifier string to the successCB callback with a 
